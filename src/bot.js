@@ -33,6 +33,8 @@ bot.onText(/\/help/,(msg)=>{
 bot.onText(/\/startqueue/, (msg) => {
     if (!isAdmin(msg.from.username)) 
        return bot.sendMessage(msg.chat.id, "Don\'t touch this shit, you\'re not adminka!")
+
+    firstPrihod = true;
     
     queue = []
     bot.sendMessage(msg.chat.id, "The queue was started))))")
