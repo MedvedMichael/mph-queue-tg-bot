@@ -1,0 +1,20 @@
+{
+  "name": "tg-bot-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd ./config/dev.env node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.40.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^8.0.2"
+  }
+}
