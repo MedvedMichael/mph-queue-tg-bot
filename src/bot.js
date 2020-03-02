@@ -25,12 +25,12 @@ bot.onText(/\/hat/,async(msg)=>{
 const isAdmin = (username) => adminUsernames.findIndex(name => username === name) !== -1
 
 bot.onText(/\/help/,(msg)=>{
-    bot.sendMessage(msg.chat.id, '/startQueue@mph_test1_bot - starts (and restarts) the queue (only for adminkas)\n' +
+    bot.sendMessage(msg.chat.id, '/startqueue@mph_test1_bot - starts (and restarts) the queue (only for adminkas)\n' +
      '/addme@mph_test1_bot - pushs your butt into the queue :)' + 
-     '/getList@mph_test1_bot - returns the shuffled list first, then without shuffling (only for adminkas)')
+     '/getlist@mph_test1_bot - returns the shuffled list first, then without shuffling (only for adminkas)')
 })
 
-bot.onText(/\/startQueue/, (msg) => {
+bot.onText(/\/startqueue/, (msg) => {
     if (!isAdmin(msg.from.username)) 
        return bot.sendMessage(msg.chat.id, "Don\'t touch this shit, you\'re not adminka!")
     
@@ -61,7 +61,7 @@ bot.onText(/\/addme/, (msg) => {
     bot.sendMessage(msg.chat.id, "You\'ve been succesfully to the queue :)")
 })
 
-bot.onText(/\/getList/, (msg) => {
+bot.onText(/\/getlist/, (msg) => {
 
     if(queue === undefined)
       return bot.sendMessage(msg.chat.id, "Please start the queue)")
