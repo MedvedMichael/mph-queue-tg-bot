@@ -3,13 +3,13 @@ const TOKEN = process.env.TOKEN
 let firstPrihod = true;
 
 let bot;
-if (process.env.NODE_ENV === 'production') {
-    bot = new TelegramBot(TOKEN);
-    bot.setWebHook(process.env.HEROKU_URL + bot.token);
-    
- } else {
+// if (process.env.NODE_ENV === 'production') {
+//     bot = new TelegramBot(TOKEN);
+//     bot.setWebHook(process.env.HEROKU_URL + bot.token);
+
+//  } else {
     bot = new TelegramBot(TOKEN, { polling: true });
- }
+// }
 
 bot.setWebHook(process.env.HEROKU_URL + bot.token)
 
