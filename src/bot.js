@@ -2,9 +2,16 @@ const TelegramBot = require('node-telegram-bot-api')
 const TOKEN = process.env.TOKEN
 let firstPrihod = true;
 
-const bot = new TelegramBot(TOKEN, {
-    polling: true
-})
+let bot;
+if (process.env.NODE_ENV === 'production') {
+    bot = new TelegramBot(TOKEN);
+    bot.setWebHook(process.env.HEROKU_URL + bot.token);
+    
+ } else {
+    bot = new TelegramBot(TOKEN, { polling: true });
+ }
+
+bot.setWebHook(process.env.HEROKU_URL + bot.token)
 
 const adminUsernames = ['medved2001', 'irina_kolbun', 'Sun_Cream']
 
@@ -121,3 +128,5 @@ const getListForMessage = () => {
     })
     return listString;
 }
+
+module.exports = bot
